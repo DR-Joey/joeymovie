@@ -4,6 +4,7 @@ import { StyleSheet, useColorScheme, View } from "react-native";
 import styled from "styled-components/native";
 import { makeImgPath } from "../utils";
 import Poster from "./Poster";
+import { Appearance } from "react-native";
 
 const BgImg = styled.Image``;
 
@@ -12,6 +13,7 @@ const Title = styled.Text<{ isDark: boolean }>`
   font-weight: 600;
   color: ${(props) => (props.isDark ? "white" : props.theme.textColor)};
 `;
+
 const Wrapper = styled.View`
   flex-direction: row;
   height: 100%;
@@ -47,7 +49,7 @@ const Slide: React.FC<SlideProps> = ({
   voteAverage,
   overview,
 }) => {
-  const isDark = useColorScheme() === "dark";
+  const isDark = Appearance.getColorScheme() === "dark";
   return (
     <View style={{ flex: 1 }}>
       <BgImg
